@@ -63,7 +63,7 @@ const Login1 = () => {
         <div className='contenedorbody'>
             <video 
                 className="background-video" 
-                src="/src/assets/motologon.mp4" 
+                src="/src/assets/Donpollo.mp4" 
                 autoPlay 
                 loop 
                 muted

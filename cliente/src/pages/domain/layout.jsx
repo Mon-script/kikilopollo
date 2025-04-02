@@ -16,6 +16,8 @@ const LayoutBase = () => {
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
+      /*aqui vamos a hacer un condicional para el menu 
+      tambien vamos a aprobechar parasetear el  pading de content*/ 
       <Sidebar
         collapsed={collapsed}
         setCollapsed={setCollapsed}
@@ -38,8 +40,8 @@ const LayoutBase = () => {
             borderRadius: borderRadiusLG,
             textAlign: 'center',
           }}
+          /* en otro condicional render aqui vamos a colocar el nuevo header con el manu incluido */ 
         >
-          {/* Aquí se renderizan dinámicamente las rutas por outlet component */}
           <Outlet />
         </Content>
         <Footer style={{ textAlign: 'center' }}>

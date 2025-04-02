@@ -12,7 +12,7 @@ const HeaderBar = ({ colorBgContainer, collapsed, setCollapsed, isMobile, entida
         padding: '1px 1px 1px 16px',
         background: colorBgContainer,
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'start',
         alignItems: 'center',
         borderRadius: '15px',
         overflow:'hidden',
@@ -21,19 +21,6 @@ const HeaderBar = ({ colorBgContainer, collapsed, setCollapsed, isMobile, entida
     >
       <h3>{entidad}</h3>
       
-
-      {/* Botón de menú solo visible en pantallas pequeñas */}
-      {isMobile && (
-        <Button
-          type="text"
-          icon={<MenuOutlined />}
-          style={{
-            fontSize: '1.5rem',
-            padding: '1rem 1rem 1rem 1rem '
-          }}
-          onClick={() => setCollapsed(!collapsed)} // Cambia el estado de colapso
-        />
-      )}
     </Header>
   );
 };

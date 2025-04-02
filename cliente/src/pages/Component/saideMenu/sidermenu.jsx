@@ -4,18 +4,18 @@ import { RightOutlined, LeftOutlined, PoweroffOutlined, TeamOutlined } from '@an
 import { Storefront, ArrowCircleLeft, StackOverflowLogo, ArrowCircleRight } from "phosphor-react";
 import { useContext } from 'react';
 import { UserContext } from '../../../userContext';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import Logo from '../../../assets/1.png';
 
 const { Sider } = Layout;
 
 const menuItemsAd = [
-  { label: 'Producto', key: '/producto', icono: <Storefront size={32} /> },
-  { label: 'Stock', key: '/stock', icono: <StackOverflowLogo size={32} /> },
-  { label: 'Entrada', key: '/entrada', icono: <ArrowCircleRight size={32} /> },
-  { label: 'Salida', key: '/salida', icono: <ArrowCircleLeft size={32} /> },
-  { label: 'Personal', key: '/personal', icono: <TeamOutlined size={32} /> },
-  { label: 'Salir', key: '/salir', icono: <PoweroffOutlined size={32} />, danger: true },
+  { label: 'Producto', key: 'producto', icono: <Storefront size={32} /> },
+  { label: 'Stock', key: 'stock', icono: <StackOverflowLogo size={32} /> },
+  { label: 'Entrada', key: 'entrada', icono: <ArrowCircleRight size={32} /> },
+  { label: 'Salida', key: 'salida', icono: <ArrowCircleLeft size={32} /> },
+  { label: 'Personal', key: 'personal', icono: <TeamOutlined size={32} /> },
+  { label: 'Salir', key: 'salir', icono: <PoweroffOutlined size={32} />, danger: true },
 ];
 
 const Sidebar = ({ collapsed, setCollapsed, setIsMobile, setEntidad }) => {
@@ -52,13 +52,14 @@ const Sidebar = ({ collapsed, setCollapsed, setIsMobile, setEntidad }) => {
       {/* Menú */}
       <Menu
         onClick={({ key }) => {
-          if (key === "/salir") {
+          if (key === "salir") {
             localStorage.removeItem('token');
             window.location.href = "http://localhost:6969";
             setUser(null);
           } else {
-            navegador(key);
-            setEntidad(key);
+            navegador(`/${key}`);
+            setEntidad(key.toLocaleUpperCase());
+            
           }
         }}
         theme="dark"
